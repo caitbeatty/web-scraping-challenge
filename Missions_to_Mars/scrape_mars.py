@@ -39,7 +39,8 @@ def scrape():
     soup = BeautifulSoup(html, 'html.parser')
     relative_image_path = soup.find_all('img', class_= 'headerimage fade-in')[0]["src"]
     #relative_image_path
-    featured_image_url = jpl_url + relative_image_path
+    base_url = 'https://data-class-jpl-space.s3.amazonaws.com/JPL_Space/'
+    featured_image_url = base_url + relative_image_path
     #featured_image_url
 
     ##question 3
@@ -100,7 +101,7 @@ def scrape():
     "mars_hemispheres":hemisphere_image_urls}
 
     print (mars_dict)
-    
+
     #return
     return mars_dict
 
